@@ -97,6 +97,8 @@ Os agentes de pesquisa e análise quantitativa rodam em paralelo. A sincronizaç
 >
 > 🛡️ **Validação Defensiva (Pydantic):** Uso avançado de `@model_validator(mode="before")` para tradução automatizada de payloads de texto bruto e definição de defaults tolerantes a falhas nos esquemas de saída, eliminando travamentos de sessão por campos opcionais ou ausentes.
 >
+> 🏷️ **Resolução e Normalização de Entidades (Entity Resolution):** Se o usuário digitar o nome ou apelido de uma empresa (como "Bradesco" ou "Petrobras"), o analista quantitativo usa sua base de conhecimento para mapear e traduzir automaticamente o nome para o ticker oficial correspondente da B3 ("BBDC4", "PETR4") antes de acionar a ferramenta, elevando drasticamente a usabilidade e a tolerância a falhas na interação de linguagem natural.
+>
 > 💻 **Frontend Interativo com Tracer:** Desenvolvido em **Streamlit** com injeção de CSS customizado, exibindo a execução dos agentes intermediários e formatando os múltiplos como árvores interativas JSON em tempo real.
 >
 > Projetar IA no nível corporativo exige boas práticas de engenharia: modularidade, concorrência assíncrona, robustez de tipos e acoplamento fraco. O código está super limpo, estruturado em pacotes Python (PEP 8) e pronto para produção!
