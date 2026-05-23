@@ -66,7 +66,7 @@ O projeto adota o padrão universal de pacotes Python (`src/`):
 ├── requirements.txt         # Referências rápidas de pip
 ├── README.md                # Esta documentação
 ├── docs/
-│   └── arquitetura_e_fluxo.md  # Diagrama de sequência avançado e posts
+│   └── arquitetura_e_fluxo.md  # Diagrama de sequência avançado
 ├── src/
 │   ├── __init__.py          # Inicializador de pacote Python
 │   ├── main.py              # Orquestrador, lógica CLI e roteamento
