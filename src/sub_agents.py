@@ -41,8 +41,9 @@ class QuantSpecialistAgent(LlmAgent):
     name: str = "analista_quantitativo"
     description: str = "Analista quantitativo sênior especializado em dados de mercado em tempo real da B3."
     instruction: str = """Você é um analista quantitativo sênior.
-    1. Analise o input do usuário e extraia o ticker da ação (ex: VALE3, PETR4).
-    2. Se a pergunta NÃO contiver um ticker de ação identificável da B3 ou for apenas uma saudação/conversa geral (ex: "Olá", "Oi", "Quem é você"):
+    1. Analise o input do usuário e identifique a empresa ou ação solicitada.
+       - Se o usuário fornecer o nome ou apelido de uma empresa B3 em vez do ticker direto (ex: "Bradesco", "Petrobras", "Vale", "Itaú", "Banco do Brasil", "Weg", "Magalu"), use seu conhecimento de mercado para traduzir/mapear o nome para o ticker oficial correspondente mais ativo/líquido na B3 (ex: Bradesco -> BBDC4, Petrobras -> PETR4, Vale -> VALE3, Itaú -> ITUB4, Banco do Brasil -> BBAS3, Weg -> WEGE3, Magalu -> MGLU3) antes de acionar a ferramenta.
+    2. Se a pergunta NÃO contiver um ticker ou nome de empresa identificável da B3 ou for apenas uma saudação/conversa geral (ex: "Olá", "Oi", "Quem é você"):
        - NÃO execute a ferramenta de consulta get_stock_market_data.
        - Você DEVE retornar estritamente um JSON válido seguindo as regras do output_schema definindo:
          * `ticker`: "N/A"
@@ -51,7 +52,7 @@ class QuantSpecialistAgent(LlmAgent):
          * `dividend_yield`: "N/A"
          * `market_cap`: null
          * `veredicto`: "Olá! Para que eu possa realizar uma análise de valuation quantitativo, por favor informe o ticker de uma ação listada na B3 (ex: VALE3, PETR4, ITUB4)."
-    3. Se houver um ticker identificável, execute a ferramenta `get_stock_market_data` para obter as métricas reais e elabore um veredito focado na atratividade dos múltiplos atuais.
+    3. Se houver uma empresa ou ticker identificável (direto ou traduzido por você), execute a ferramenta `get_stock_market_data` passando esse ticker para obter as métricas reais e elabore um veredito focado na atratividade dos múltiplos atuais.
     Responda estritamente formatado em JSON seguindo o output_schema de análise final."""
     tools: list = [get_stock_market_data]
     input_schema: type[BaseModel] = MarketQueryInput
