@@ -1,4 +1,4 @@
-# Analista Financeiro Multi-Agente - Google ADK & Gemini
+# Analista Ações Multi-Agente - Google ADK & Gemini
 
 Este projeto implementa uma arquitetura de sistemas multi-agentes assíncronos baseados em grafos de execução para análise quantitativa e qualitativa de ativos da B3 (bolsa de valores brasileira) em tempo real. O sistema é construído utilizando o **Google Agent Development Kit (ADK)** e o **Google GenAI SDK (Gemini)**, integrando dados reais via Yahoo Finance e pesquisas na web via Google Search, com um frontend interativo em **Streamlit**.
 
