@@ -72,37 +72,3 @@ O pipeline realiza uma análise léxica na entrada usando a função `contem_con
 
 ### 3. Paralelismo Concorrente e Sincronização
 Os agentes de pesquisa e análise quantitativa rodam em paralelo. A sincronização segura do estado é operada pelo `SincronizacaoPesquisa` (`JoinNode`), que aguarda a conclusão de ambos os ramos concorrentes antes de disparar o consolidador final.
-
----
-
-## 💼 LinkedIn Post Oficial (Foco em Negócios com Detalhes Técnicos para Recrutadores) 🌟
-
-*Utilize o rascunho abaixo para publicar no seu LinkedIn. Ele foi planejado para demonstrar a solução de um problema real de negócio (automação financeira) enquanto exibe termos e arquiteturas altamente atrativas para recrutadores e tech leads!*
-
-***
-
-> **Superando a barreira dos robôs de Chat: Construí um pipeline de analistas de IA integrando o novo Google ADK, Yahoo Finance e Streamlit! 🚀📈 B3 em tempo real e 0% alucinação.**
->
-> Quantas horas um analista de investimentos leva para pesquisar notícias, sentimento de mercado, consultar múltiplos financeiros de valuation e consolidar um parecer estratégico de compra ou venda?
->
-> Para demonstrar o poder prático dos **Sistemas Multi-Agentes (Multi-Agent Systems)**, desenvolvi uma equipe inteligente baseada em grafos que faz todo esse trabalho pesado e gera um relatório consolidado e fundamentado em **menos de 10 segundos**, com dados 100% reais da B3!
->
-> Mas o verdadeiro diferencial deste projeto foi aplicar **padrões clássicos de engenharia de software e sistemas concorrentes** na arquitetura de IA:
->
-> ⚙️ **Concorrência Dinâmica e Assíncrona:** A partir do gatilho `"START"`, o orquestrador dispara simultaneamente o **`StockResearcher`** (varrendo a internet com Google Search) e o **`QuantSpecialistAgent`** (conectando-se à API do Yahoo Finance em tempo real).
->
-> 🧱 **Nó de Sincronização por Barreira (`JoinNode`):** Como os tempos de resposta das ferramentas diferem, implementei uma barreira de sincronização que bloqueia a etapa de consolidação até que ambos os fluxos concorrentes finalizem com segurança, garantindo integridade de estado e eliminando condições de corrida.
->
-> 🧭 **Roteador de Intenções Dinâmico (Intent Router):** Implementei uma camada de análise léxica na entrada da CLI e do Streamlit. Se o usuário envia apenas um cumprimento geral (ex: "Olá"), o sistema contorna o pipeline pesado e roteia a resposta diretamente para um **`ConversationalAgent`**, otimizando recursos computacionais e mantendo a interface limpa.
->
-> 🛡️ **Validação Defensiva (Pydantic):** Uso avançado de `@model_validator(mode="before")` para tradução automatizada de payloads de texto bruto e definição de defaults tolerantes a falhas nos esquemas de saída, eliminando travamentos de sessão por campos opcionais ou ausentes.
->
-> 🏷️ **Resolução e Normalização de Entidades (Entity Resolution):** Se o usuário digitar o nome ou apelido de uma empresa (como "Bradesco" ou "Petrobras"), o analista quantitativo usa sua base de conhecimento para mapear e traduzir automaticamente o nome para o ticker oficial correspondente da B3 ("BBDC4", "PETR4") antes de acionar a ferramenta, elevando drasticamente a usabilidade e a tolerância a falhas na interação de linguagem natural.
->
-> 💻 **Frontend Interativo com Tracer:** Desenvolvido em **Streamlit** com injeção de CSS customizado, exibindo a execução dos agentes intermediários e formatando os múltiplos como árvores interativas JSON em tempo real.
->
-> Projetar IA no nível corporativo exige boas práticas de engenharia: modularidade, concorrência assíncrona, robustez de tipos e acoplamento fraco. O código está super limpo, estruturado em pacotes Python (PEP 8) e pronto para produção!
->
-> Compartilho mais detalhes de código e diagramas nos comentários! Como a sua área tem desenhado arquiteturas multi-agentes hoje?
->
-> #AI #ArtificialIntelligence #SoftwareEngineering #MultiAgentSystems #GoogleADK #Gemini #GenAI #B3 #Python #SoftwareArchitecture
