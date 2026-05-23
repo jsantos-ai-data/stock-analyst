@@ -1,0 +1,20 @@
+[project]
+name = "agent-with-google-adk"
+version = "0.1.0"
+description = "Agent development project using Google ADK and GenAI SDK"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "google-adk",
+    "google-genai",
+    "yfinance",
+    "python-dotenv",
+    "streamlit",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
